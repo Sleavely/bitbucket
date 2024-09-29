@@ -1,0 +1,37 @@
+{
+  "name": "@sleavely/bitbucket",
+  "version": "1.0.0",
+  "description": "Client and utils for Bitbucket Cloud REST APIs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/*.d.ts",
+    "dist/**/*.d.ts"
+  ],
+  "scripts": {
+    "prebuild": "tsc --noEmit && rm -rf dist/",
+    "build": "esbuild --bundle --platform=node --packages=external --outdir=./dist/ ./src/index.ts",
+    "postbuild": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --outdir ./dist/",
+    "test": "eslint src/ && npm run build"
+  },
+  "keywords": [
+    "api-client",
+    "bitbucket",
+    "bitbucket-api"
+  ],
+  "author": "Joakim Hedlund <contact@joakimhedlund.com>",
+  "homepage": "https://github.com/Sleavely/bitbucket",
+  "repository": "github:Sleavely/bitbucket",
+  "license": "MIT",
+  "devDependencies": {
+    "@sleavely/eslint-config": "^1.0.1",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "form-data": "^4.0.0",
+    "got": "^11.8.6"
+  }
+}
